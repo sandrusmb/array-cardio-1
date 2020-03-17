@@ -59,19 +59,60 @@ const people = [
   "Blake, William"
 ];
 
-// Array.prototype.filter()
+///////////// Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
+/* console.log(inventors);
+const result = inventors.filter(
+  inventor => inventor.year >= 1500 && inventor.year <= 1599
+);
+console.table(result); */
 
-// Array.prototype.map()
+//////////// Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
 
-// Array.prototype.sort()
+/* const inventorsNames = inventors.map(inventor => {
+  console.log(inventor.first, inventor.last);
+}); */
+
+//////////// Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
 
-// Array.prototype.reduce()
+/* const orderedArray = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
+console.log(orderedArray); */
+
+//////////// Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
 
-// 5. Sort the inventors by years lived
+/// restaría el año que murieron, menos el año que nacieron. luego sumaria todos los resultados juntos.
+
+/* let acc = 0;
+
+for (let i = 0; i < inventors.length; i++) {
+  const inventorDead = inventors[i].passed;
+  const inventorBirth = inventors[i].year;
+  const result = inventorDead - inventorBirth;
+  acc += result;
+}
+
+console.log(acc);
+
+const totalYears = inventors.reduce((total, inventor) => {
+  return total + (inventor.passed - inventor.year);
+}, 0);
+
+console.log(totalYears); */
+
+/////////////////// 5. Sort the inventors by years lived
+
+// restaría el año de la muerte menos el año de nacimiento y lo ordenaría.
+
+/* const yearsLived = inventors.sort((a, b) => {
+  const firstPerson = a.passed - a.year;
+  const secondPerson = b.passed - b.year;
+  return firstPerson > secondPerson ? -1 : 1;
+});
+
+console.log(yearsLived); */
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
